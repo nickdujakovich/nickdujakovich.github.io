@@ -36,7 +36,12 @@ export function Projects() {
                                         Private
                                     </span>
                                 )}
-                                {project.links.demo ? (
+                                {project.inDevelopment ? (
+                                    <span className="project-link demo in-dev">
+                                        <CheckmarkIcon width={16} height={16} />
+                                        In Dev
+                                    </span>
+                                ) : project.links.demo ? (
                                     <a
                                         href={project.links.demo}
                                         target="_blank"

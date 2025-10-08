@@ -117,6 +117,7 @@ export const content = {
             {
                 name: "AI-Powered Lawn Care Analysis App",
                 isPersonal: true,
+                inDevelopment: true,
                 description: "Cross-platform mobile app with OpenAI integration and hyperlocal weather data",
                 technologies: ["React Native", "OpenAI GPT-5", "Tempest Weather API", "TypeScript", "Supabase"],
                 links: {

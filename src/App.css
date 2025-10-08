@@ -870,6 +870,21 @@
   box-shadow: none;
 }
 
+.project-link.demo.in-dev {
+  background: rgba(255, 193, 7, 0.1);
+  border-color: rgba(255, 193, 7, 0.3);
+  color: #ffc107;
+  cursor: default;
+}
+
+.project-link.demo.in-dev:hover {
+  background: rgba(255, 193, 7, 0.15);
+  border-color: #ffc107;
+  color: #ffc107;
+  transform: none;
+  box-shadow: none;
+}
+
 .project-description {
   color: var(--muted);
   line-height: 1.6;
