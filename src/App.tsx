@@ -6,6 +6,13 @@ import { About } from './components/About'
 import { Projects } from './components/Projects'
 import { Contact } from './components/Contact'
 
+// Google Analytics tracking
+declare global {
+  interface Window {
+    gtag: (...args: any[]) => void;
+  }
+}
+
 function Layout() {
   const headerOffset = 72
 
@@ -17,6 +24,15 @@ function Layout() {
     if (target) {
       const targetTop = window.scrollY + target.getBoundingClientRect().top - headerOffset
       window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' })
+
+      // Track navigation clicks in Google Analytics
+      if (window.gtag) {
+        window.gtag('event', 'navigation_click', {
+          event_category: 'Navigation',
+          event_label: targetId,
+          value: 1
+        })
+      }
     }
   }
 
