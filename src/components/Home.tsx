@@ -80,6 +80,16 @@ export function Home() {
                         <p>Building AI-powered applications with OpenAI GPT-5 and machine learning</p>
                     </div>
                 </div>
+
+                <div className="highlight-card">
+                    <div className="highlight-icon">
+                        <EmailIcon width={24} height={24} />
+                    </div>
+                    <div className="highlight-content">
+                        <h3>Communication</h3>
+                        <p>Strong collaboration skills with cross-functional teams and stakeholders</p>
+                    </div>
+                </div>
             </div>
 
             <div className="home-cta">

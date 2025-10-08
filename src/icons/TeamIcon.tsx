@@ -13,7 +13,20 @@ export function TeamIcon({ width = 24, height = 24, className }: TeamIconProps) 
             fill="currentColor"
             className={className}
         >
-            <path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A1.5 1.5 0 0 0 18.54 8H16c-.8 0-1.54.37-2.01.99L12 11l-1.99-2.01A2.5 2.5 0 0 0 8 8H5.46c-.8 0-1.54.37-2.01.99L1 14.5V22h2v-6h2.5l2.54-7.63A1.5 1.5 0 0 1 9.46 8H12c.8 0 1.54.37 2.01.99L16 11l1.99-2.01A2.5 2.5 0 0 1 20 8h2.5l-2.54 7.63A1.5 1.5 0 0 1 18.54 18H16v4h4z" />
+            {/* Team leadership icon - leader with team */}
+            {/* Leader (center, larger) */}
+            <circle cx="12" cy="7" r="3.5" />
+            <path d="M12 10.5c-2.5 0-4.5 2-4.5 4.5v3h9v-3c0-2.5-2-4.5-4.5-4.5z" />
+
+            {/* Team members (smaller, on sides) */}
+            <circle cx="6" cy="9" r="2" />
+            <path d="M6 11c-1 0-2 1-2 2v2h4v-2c0-1-1-2-2-2z" />
+
+            <circle cx="18" cy="9" r="2" />
+            <path d="M18 11c-1 0-2 1-2 2v2h4v-2c0-1-1-2-2-2z" />
+
+            {/* Leadership indicator - star above leader */}
+            <path d="M12 3l1 2h2l-1.5 1.5L14.5 9l-2.5-1.5L9.5 9l1-2.5L9 5h2l1-2z" />
         </svg>
     );
 }
