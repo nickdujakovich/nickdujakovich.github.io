@@ -53,7 +53,7 @@ export function Contact() {
 
             <div className="contact-cta">
                 <h2>Ready to work together?</h2>
-                <p>I'm always interested in new opportunities, whether it's a full-time role, freelance project, or just a conversation about technology.</p>
+                <p>I'm always interested in new opportunities, whether it's a freelance project, collaboration, or just a conversation about technology.</p>
                 <div className="contact-cta-buttons">
                     <a href={`mailto:${content.contact.email}`} className="cta-button primary">
                         <EmailIcon width={16} height={16} />
