@@ -1,2 +1,6 @@
 /*    /index.html   200
 
+# MIME type fixes for JavaScript modules
+/assets/*.js    /assets/*.js   200
+/assets/*.mjs   /assets/*.mjs  200
+
