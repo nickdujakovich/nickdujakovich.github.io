@@ -24,3 +24,11 @@
 
 /assets/*.ico
   Content-Type: image/x-icon
+
+/favicon.ico
+  Content-Type: image/x-icon
+  Cache-Control: public, max-age=31536000
+
+/favicon.svg
+  Content-Type: image/svg+xml
+  Cache-Control: public, max-age=31536000
