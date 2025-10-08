@@ -1,6 +1,8 @@
 import { content } from '../data/content'
 import { StarIcon, TeamIcon, CheckmarkIcon, EmailIcon } from '../icons'
 import mePhoto from '../assets/me.jpg'
+import amerisaveLogo from '../assets/amerisave.png'
+import capitaloneLogo from '../assets/capitalone.png'
 
 export function Home() {
     return (
@@ -18,12 +20,12 @@ export function Home() {
                         <div className="company-highlights">
                             <div className="company-badge amerisave">
                                 <div className="company-logo">
-                                    <img src="/src/assets/amerisave.png" alt="AmeriSave Mortgage" />
+                                    <img src={amerisaveLogo} alt="AmeriSave Mortgage" />
                                 </div>
                             </div>
                             <div className="company-badge capitalone">
                                 <div className="company-logo">
-                                    <img src="/src/assets/capitalone.png" alt="Capital One" />
+                                    <img src={capitaloneLogo} alt="Capital One" />
                                 </div>
                             </div>
                         </div>

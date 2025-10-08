@@ -1,3 +1,6 @@
+import amerisaveLogo from '../assets/amerisave.png'
+import capitaloneLogo from '../assets/capitalone.png'
+
 export const content = {
     home: {
         title: "Hi, I'm Nikolas",
@@ -20,7 +23,7 @@ export const content = {
                     hoverColor: "#10E0B3",
                     highlightHoverColor: "#10E0B3",
                     period: "Feb 2025 – Present",
-                    image: "/src/assets/amerisave.png",
+                    image: amerisaveLogo,
                     highlights: [
                         "Led development of multi-step mortgage purchase flow handling <b>10,000</b>+ monthly applications",
                         "<b>Directed</b> engineering team of 4 developers, managing <b>feature planning</b> and architecture decisions",
@@ -40,7 +43,7 @@ export const content = {
                     period: "Aug 2020 – Feb 2025",
                     highlights: [],
                     progression: "company",
-                    image: "/src/assets/capitalone.png",
+                    image: capitaloneLogo,
                     subRoles: [
                         {
                             role: "Senior Software Engineer",
