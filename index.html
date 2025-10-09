@@ -29,6 +29,24 @@
             page_location: window.location.href
         });
     </script>
+
+    <!-- Domain redirect script -->
+    <script>
+        // Redirect to canonical domain if not already on nickdujakovich.pages.dev
+        (function() {
+            const canonicalDomain = 'nickdujakovich.pages.dev';
+            const currentHost = window.location.hostname;
+            
+            if (currentHost !== canonicalDomain) {
+                // Preserve the current path and query string
+                const currentPath = window.location.pathname + window.location.search + window.location.hash;
+                const redirectUrl = 'https://' + canonicalDomain + currentPath;
+                
+                // Use replace to avoid adding to browser history
+                window.location.replace(redirectUrl);
+            }
+        })();
+    </script>
 </head>
 
 <body>
