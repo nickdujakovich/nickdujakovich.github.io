@@ -1,33 +1,19 @@
-# Nick Dujakovich — Personal Website
+# Nikolas Dujakovich — Portfolio
 
-This is my personal website hosted on GitHub Pages at [nickdujakovich.github.io](https://nickdujakovich.github.io).
+Live at **https://nickdujakovich.github.io** (deploys from `main` via `.github/workflows/deploy.yml`).
 
-## Prerequisites
-- Node: 22.20.0 (use `.nvmrc`)
+Single-page portfolio built with **SolidJS**, **TypeScript**, **Tailwind CSS v4**, and **Vite**, tested with **Vitest**. Every figure on the site is sourced from `NikolasDujakovichResume.pdf`, guarded by a data-integrity test suite (`src/data/resume.test.ts`).
 
-## Installation
-```bash
-npm install
-```
+## Scripts
 
-## Development
-```bash
-npm run dev
-```
+| Command           | What it does                      |
+| ----------------- | --------------------------------- |
+| `npm run dev`     | Start the Vite dev server         |
+| `npm run build`   | Production build into `dist/`     |
+| `npm run preview` | Serve the production build        |
+| `npm run test`    | Run the Vitest suite once         |
+| `npm run typecheck` | Strict `tsc --noEmit`           |
 
-## Build
-```bash
-npm run build
-```
+## Deploy
 
-## Preview Build
-```bash
-npm run preview
-```
-
-## Deployment
-This site is automatically deployed to GitHub Pages when changes are pushed to the main branch.
-
-- **Live Site**: [nickdujakovich.github.io](https://nickdujakovich.github.io)
-- **Output Directory**: `dist/`
-- **GitHub Pages**: Automatically deployed from the `dist/` folder
+`npm run build` emits a fully static `dist/` (JS + CSS + resume PDF) — host it on GitHub Pages, Cloudflare Pages, Netlify, Vercel, or any static file host.

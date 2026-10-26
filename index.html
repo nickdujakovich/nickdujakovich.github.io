@@ -1,57 +1,66 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-
-<head>
+  <head>
     <meta charset="UTF-8" />
-    <link rel="icon" href="/favicon.ico?v=20241205" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20241205" />
-    <link rel="shortcut icon" href="/favicon.ico?v=20241205" />
-    <link rel="apple-touch-icon" href="/favicon.svg?v=20241205" />
-    <meta name="msapplication-TileColor" content="#10E0B3" />
-    <meta name="msapplication-TileImage" content="/favicon.svg?v=20241205" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#0b0b0f" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <title>Nikolas Dujakovich — Senior Software Engineer</title>
+    <meta
+      name="description"
+      content="Portfolio of Nikolas Dujakovich, Senior Software Engineer. Technical owner of AmeriSave's InstaWizard lending platform (33,000+ daily users). Vue, Nuxt, Node.js, Fastify, TypeScript, Azure."
+    />
+    <meta name="author" content="Nikolas Dujakovich" />
+    <meta name="theme-color" content="#0f1317" />
+    <meta property="og:title" content="Nikolas Dujakovich — Senior Software Engineer" />
+    <meta
+      property="og:description"
+      content="Technical owner of AmeriSave's InstaWizard lending platform. 6+ years full-stack. Vue, Nuxt, Node.js, Fastify, TypeScript, Azure."
+    />
+    <meta property="og:type" content="website" />
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=JetBrains+Mono:wght@200;300;400;500&display=swap"
-        rel="stylesheet">
-    <title>Nick Dujakovich — Personal Website</title>
-
-    <!-- Google Analytics 4 -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-W0Y58DXGCT"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'G-W0Y58DXGCT', {
-            page_title: document.title,
-            page_location: window.location.href
-        });
+      rel="icon"
+      href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%2314181d'/%3E%3Ctext x='16' y='22' font-family='monospace' font-size='15' font-weight='bold' fill='%23FF6B2C' text-anchor='middle'%3END%3C/text%3E%3C/svg%3E"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nikolas Dujakovich",
+        "jobTitle": "Senior Software Engineer",
+        "email": "mailto:nikolasdujakovich@gmail.com",
+        "telephone": "+1-949-933-1043",
+        "address": { "@type": "PostalAddress", "addressLocality": "Piedmont", "addressRegion": "OK" },
+        "sameAs": ["https://linkedin.com/in/nickdujakovich"],
+        "alumniOf": "California State University San Marcos",
+        "worksFor": "AmeriSave Mortgage"
+      }
     </script>
-
-    <!-- Domain redirect script -->
     <script>
-        // Redirect to canonical domain if not already on nickdujakovich.pages.dev
-        (function () {
-            const canonicalDomain = 'nickdujakovich.pages.dev';
-            const currentHost = window.location.hostname;
-
-            if (currentHost !== canonicalDomain && currentHost !== 'localhost') {
-                // Preserve the current path and query string
-                const currentPath = window.location.pathname + window.location.search + window.location.hash;
-                const redirectUrl = 'https://' + canonicalDomain + currentPath;
-
-                // Use replace to avoid adding to browser history
-                window.location.replace(redirectUrl);
-            }
-        })();
+      try {
+        if (localStorage.getItem("nd-theme") !== "light") {
+          document.documentElement.classList.add("dark");
+        }
+      } catch (e) {
+        document.documentElement.classList.add("dark");
+      }
     </script>
-</head>
-
-<body>
+    <script>
+      // This site ships no service worker. If a same-origin SW from another
+      // localhost project exists (e.g. after switching apps on one port),
+      // drop it so it can't serve stale HTML for our module requests.
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .getRegistrations()
+          .then(function (rs) {
+            rs.forEach(function (r) {
+              r.unregister();
+            });
+          })
+          .catch(function () {});
+      }
+    </script>
+  </head>
+  <body>
     <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-</body>
-
+    <script type="module" src="/src/index.tsx"></script>
+  </body>
 </html>

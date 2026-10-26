@@ -1,0 +1,180 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  --font-display: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace;
+
+  --color-canvas: #ffffff;
+  --color-canvas-soft: #f1f3f1;
+  --color-night: #0f1317;
+  --color-night-soft: #161c22;
+  --color-ink: #14181d;
+  --color-ink-soft: #3c454e;
+  --color-ink-pale: #cfd4d9;
+  --color-fog: #4a545e;
+  --color-fog-pale: #a9b1b9;
+  --color-line: #d8dcd8;
+  --color-line-dark: #2a323b;
+  --color-accent: #c7430a;
+  --color-accent-hover: #a33407;
+  --color-accent-bright: #ff6b2c;
+  --color-accent-soft: #fbe9dd;
+  --color-good: #1e7a46;
+  --color-good-bright: #4cc38a;
+  --color-coal: #0d1114;
+  --color-bone: #f2f0e9;
+  --color-term-dim: #8b949e;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-canvas font-sans text-ink antialiased dark:bg-night dark:text-bone;
+  overflow-x: clip;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
+}
+
+::selection {
+  background: var(--color-accent);
+  color: #fff;
+}
+.dark ::selection {
+  background: var(--color-accent-bright);
+  color: var(--color-ink);
+}
+
+@keyframes pulse-dot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.35;
+  }
+}
+.pulse-dot {
+  animation: pulse-dot 2s infinite;
+}
+
+.chart-bar-anim {
+  transition:
+    y 0.6s ease,
+    height 0.6s ease;
+}
+
+.bar-fill-anim {
+  transition: width 1.2s ease;
+}
+
+.term-screen {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-line-dark) transparent;
+}
+
+/* Entrance + micro animations. */
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translateY(18px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-rise {
+  opacity: 0;
+  animation: rise-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-pop {
+  animation: pop-in 0.18s ease-out;
+}
+
+@keyframes toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-toast {
+  animation: toast-in 0.25s ease-out;
+}
+
+@keyframes msg-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.animate-msg {
+  animation: msg-in 0.25s ease-out;
+}
+
+/* Spotlight ring for the guided tour's active section. */
+[data-tour-active] {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 14px;
+  border-radius: 4px;
+  transition: outline-color 0.3s ease;
+}
+.dark [data-tour-active] {
+  outline-color: var(--color-accent-bright);
+}
+
+/* Film-grain texture overlay for a printed-artifact feel. */
+.grain {
+  position: fixed;
+  inset: 0;
+  z-index: 90;
+  pointer-events: none;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+.dark .grain {
+  opacity: 0.08;
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@media print {
+  .no-print {
+    display: none !important;
+  }
+}

@@ -1,22 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import tailwindcss from "@tailwindcss/vite";
+import solid from "vite-plugin-solid";
+import { defineConfig } from "vitest/config";
 
-// https://vite.dev/config/
 export default defineConfig({
-  plugins: [react()],
-  base: '/',
-  build: {
-    outDir: 'dist',
-    rollupOptions: {
-      output: {
-        manualChunks: undefined,
-      },
-    },
+  plugins: [solid(), tailwindcss()],
+  // Fixed port: sharing :5173 with other local projects lets their service
+  // workers hijack this app's module requests (white screen + MIME errors).
+  server: { port: 5190, strictPort: true },
+  build: { target: "esnext" },
+  test: {
+    environment: "jsdom",
+    include: ["src/**/*.test.{ts,tsx}"],
   },
-  server: {
-    headers: {
-      'Cross-Origin-Embedder-Policy': 'require-corp',
-      'Cross-Origin-Opener-Policy': 'same-origin',
-    },
-  },
-})
+});

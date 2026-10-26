@@ -1,66 +1,43 @@
-import './App.css'
-import { BrowserRouter, NavLink } from 'react-router-dom'
-import { useScrollSpy } from './hooks/useScrollSpy'
-import { Home } from './components/Home'
-import { About } from './components/About'
-import { Projects } from './components/Projects'
-import { Contact } from './components/Contact'
-
-// Google Analytics tracking
-declare global {
-  interface Window {
-    gtag: (...args: any[]) => void;
-  }
-}
-
-function Layout() {
-  const headerOffset = 72
-
-  // Scrollspy: update URL path based on section whose top is closest to header
-  useScrollSpy(headerOffset)
-
-  const handleNavClick = (targetId: string) => {
-    const target = document.getElementById(targetId)
-    if (target) {
-      const targetTop = window.scrollY + target.getBoundingClientRect().top - headerOffset
-      window.scrollTo({ top: Math.max(0, targetTop), behavior: 'smooth' })
-
-      // Track navigation clicks in Google Analytics
-      if (window.gtag) {
-        window.gtag('event', 'navigation_click', {
-          event_category: 'Navigation',
-          event_label: targetId,
-          value: 1
-        })
-      }
-    }
-  }
-
-  return (
-    <div className="app">
-      <header className="header">
-        <nav className="nav">
-          <NavLink to="/" end className={({ isActive }) => isActive ? 'active' : undefined} onClick={() => handleNavClick('home')}>Home</NavLink>
-          <NavLink to="/about" className={({ isActive }) => isActive ? 'active' : undefined} onClick={() => handleNavClick('about')}>About</NavLink>
-          <NavLink to="/projects" className={({ isActive }) => isActive ? 'active' : undefined} onClick={() => handleNavClick('projects')}>Projects</NavLink>
-          <NavLink to="/contact" className={({ isActive }) => isActive ? 'active' : undefined} onClick={() => handleNavClick('contact')}>Contact</NavLink>
-        </nav>
-      </header>
-      <main className="main">
-        <section id="home" className="section"><Home /></section>
-        <section id="about" className="section"><About /></section>
-        <section id="projects" className="section"><Projects /></section>
-        <section id="contact" className="section"><Contact /></section>
-      </main>
-      <footer className="footer">© {new Date().getFullYear()} Nikolas Dujakovich</footer>
-    </div>
-  )
-}
+import { Architecture } from "./components/Architecture";
+import { Ask } from "./components/Ask";
+import { Contact, Footer } from "./components/Contact";
+import { Experience } from "./components/Experience";
+import { Header } from "./components/Header";
+import { Hero } from "./components/Hero";
+import { Impact } from "./components/Impact";
+import { Palette } from "./components/Palette";
+import { Skills } from "./components/Skills";
+import { Terminal } from "./components/Terminal";
+import { Toast } from "./components/Toast";
+import { Tour } from "./components/Tour";
 
 export default function App() {
   return (
-    <BrowserRouter>
-      <Layout />
-    </BrowserRouter>
-  )
+    <div id="top">
+      <a
+        href="#main"
+        class="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-[110] focus:bg-ink focus:px-4 focus:py-2 focus:text-canvas"
+      >
+        Skip to content
+      </a>
+      <div class="grain" aria-hidden="true" />
+      <Header />
+      <main id="main" class="mx-auto max-w-6xl px-5">
+        <Hero />
+        <Impact />
+        <Experience />
+        <Architecture />
+        <Skills />
+        <div class="no-print">
+          <Terminal />
+        </div>
+        <Ask />
+        <Contact />
+      </main>
+      <Footer />
+      <Palette />
+      <Toast />
+      <Tour />
+    </div>
+  );
 }
